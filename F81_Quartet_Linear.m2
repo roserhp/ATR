@@ -10,7 +10,10 @@ Rx=K[var];
 
 --Retrieve tensor on our desired basis
 use R;
+--choose coordinates
 pbar=value get "F81_4leaves_tensor.txt";
+--pbar=value get "F81_4leaves_tensor_ptilde.txt"; (parametrization as monic as possible)
+--does not give nicer linear equations
 
 F = map(R,Rx,transpose pbar);
 

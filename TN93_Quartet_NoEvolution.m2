@@ -36,6 +36,9 @@ H4=(transpose H)**(transpose H)**(transpose H)**(transpose H);
 pbar0=time H4*qq;
 -- used 0.234375 seconds
 
+"TN93_4leaves_noEvol.txt" << toString pbar0 << endl << close
+
+
 nonZeroEntries=S_(positions(flatten entries pbar0,i->i!=0))
 
 netList apply(nonZeroEntries,i->{i,pbar0_(position(S,j->j==(2,3,2,3)),0)})
