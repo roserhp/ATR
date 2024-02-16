@@ -64,13 +64,18 @@ D2Id=transpose matrix {apply(flatten entries qbar,i->sub(i,{l_(5,1)=>0,l_(5,2)=>
 D3Id=transpose matrix {apply(flatten entries qbar,i->sub(i,{l_(5,1)=>0,l_(5,2)=>0,l_(5,3)=>1}))};
 
 --For coordinates of type (3,3,3,3)
-P1=(D_3**D_3**D_3**D_3)*D1Id;
+P=(D_3**D_3**D_3**D_3)*qbarId;
+netList (select(flatten entries P,i->i!=0))
+S_(positions(flatten entries P,j->j!=0))
+P1=(D_3**D_3**D_3**D_3)*D1Id
 netList (select(flatten entries P1,i->i!=0))
+S_(positions(flatten entries P1,j->j!=0))
 P2=(D_3**D_3**D_3**D_3)*D2Id;
 netList (select(flatten entries P2,i->i!=0))
+S_(positions(flatten entries P2,j->j!=0))
 P3=(D_3**D_3**D_3**D_3)*D3Id;
 netList (select(flatten entries P3,i->i!=0))
-netList (select(flatten entries PId_(position(Ss,i->i==(3,3,3,3))),i->i!=0))
+S_(positions(flatten entries P3,j->j!=0))
 
 M=M|P1|P2;
 rank M --47
